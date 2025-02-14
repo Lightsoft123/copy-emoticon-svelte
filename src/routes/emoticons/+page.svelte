@@ -13,7 +13,12 @@
 <div>Create Emoticons</div>
 <Input bind:value={addEmoticon} />
 <Button
-	onclick={() => (emotes.push(addEmoticon ?? ''), (addEmoticon = undefined))}
+	onclick={() => (
+		!emotes.find((val) => val === addEmoticon)
+			? emotes.push(addEmoticon ?? '')
+			: toast.warning('Emotes already exists', { position: 'top-center', dismissable: true }),
+		(addEmoticon = undefined)
+	)}
 	disabled={!addEmoticon}
 >
 	Add Emoticon
