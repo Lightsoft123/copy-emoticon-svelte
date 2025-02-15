@@ -4,12 +4,5 @@
 	let { children } = $props();
 </script>
 
-<Toaster
-	toastOptions={{
-		classes: {
-			success: 'bg-green-300',
-			error: 'bg-destructive'
-		}
-	}}
-/>
+<Toaster richColors />
 {@render children?.()}
