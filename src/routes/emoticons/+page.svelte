@@ -1,8 +1,10 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
+	import { page } from '$app/state';
 	import Button from '$lib/components/ui/button/button.svelte';
+	import Input from '$lib/components/ui/input/input.svelte';
 	import { toast } from 'svelte-sonner';
 	import type { PageData } from './$types.ts';
-	import Input from '$lib/components/ui/input/input.svelte';
 
 	let { data }: { data: PageData } = $props();
 	let addEmoticon: string | undefined = $state();
@@ -10,6 +12,7 @@
 	let emotes = $state(data.emoticons);
 </script>
 
+<Button onclick={() => goto(`${page.url.host}/login`)}>Login</Button>
 <div>Create Emoticons</div>
 <Input bind:value={addEmoticon} />
 <Button
