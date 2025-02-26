@@ -26,7 +26,7 @@
 >
 	Add Emoticon
 </Button>
-<div>Emoticons</div>
+<div class="mt-2">Emoticons</div>
 <div class="flex w-auto gap-4">
 	{#key emotes}
 		{#each emotes as item}
