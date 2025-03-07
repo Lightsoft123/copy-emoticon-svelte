@@ -1,14 +1,15 @@
-import { log } from 'console';
-import { getUserLogin } from '../../db/query/user.ts';
+import { registerNewUser } from '../../db/query/user.ts';
 import type { PageServerLoad } from './$types.js';
 
 export const load: PageServerLoad = async () => {};
 
 export const actions = {
-	login: async (event) => {
+	register: async (event) => {
 		const obj: Record<string, string> = {};
 		type User = {
+			name: string;
 			username: string;
+			email: string;
 			password: string;
 		};
 		const formData = await event.request.formData();
@@ -22,6 +23,6 @@ export const actions = {
 		const hashArray = Array.from(new Uint8Array(hashBuffer));
 		userForm.password = hashArray.map((b) => b.toString(16).padStart(2, '0')).join('');
 
-		log(await getUserLogin(userForm.username, userForm.password));
+		registerNewUser(userForm.name, userForm.username, userForm.email, userForm.password);
 	}
 };
