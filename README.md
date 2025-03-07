@@ -56,3 +56,19 @@ To publish your library to [npm](https://www.npmjs.com):
 ```bash
 npm publish
 ```
+
+## Easiest way to run app
+
+Run this command
+
+```bash
+$ npm install -g pnpm
+```
+
+After installed, run this command
+
+```bash
+$ pnpm install
+
+$ pnpm build
+```
